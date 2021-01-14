@@ -1,0 +1,15 @@
+<h1><%= series.name %> - <%= chapter.name %></h1>
+
+<hr>
+
+<p>Ngày đăng: <%= chapter.postedDate %></p>
+<% if (chapter.status == -1) { %>
+    <button type="button" class="btn btn-primary btn-sm"><i class="fas fa-check"></i> Duyệt</button>
+    <button type="button" class="btn btn-danger btn-sm"><i class="fas fa-times"></i> Từ chối</button>
+<% } %>
+
+<div class="container">
+    <% chapter.imageList.forEach(image => { %>
+        <img src="<%= image %>" alt="" style="width: 100%;">
+    <% }) %>
+</div>

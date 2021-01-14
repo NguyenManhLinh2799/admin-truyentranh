@@ -1,0 +1,50 @@
+<h1>Báo cáo truyện</h1>
+
+<hr>
+
+<div class="row">
+    <div class="col-2">
+        <b>Tên truyện:</b>
+    </div>
+    <div class="col-10">
+        <p><%= series.name %></p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-2">
+        <b>Người đăng:</b>
+    </div>
+    <div class="col-10">
+        <p><%= postedBy.fullName %></p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-2">
+        <b>Nội dung báo cáo</b>
+    </div>
+    <div class="col-10">
+        <%= reportSeries.summary %>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-2">
+        <b>Người báo cáo:</b>
+    </div>
+    <div class="col-10">
+        <p><%= reportedBy.fullName %></p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-2">
+        <b>Ngày báo cáo:</b>
+    </div>
+    <div class="col-10">
+        <p><%= reportSeries.reportedDate %></p>
+    </div>
+</div>
+
+<a href="#" role="button" class="btn-danger btn-sm"><i class="fas fa-times"></i> Xóa báo cáo</a>

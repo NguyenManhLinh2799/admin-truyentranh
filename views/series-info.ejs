@@ -1,0 +1,90 @@
+<h1>Thông tin truyện</h1>
+
+<hr>
+
+<div class="row">
+    <div class="col-3">
+        <img class="img-thumbnail" src="<%= series.thumbnail %>" alt="">
+    </div>
+    <div class="col-9">
+        <p>ID: <%= series._id %></p>
+        <p>Tên truyện: <%= series.name %></p>
+        <p>Tác giả: <%= series.author %></p>
+        <p>Ngày đăng: <%= series.postedDate %></p>
+        <p>Người đăng: <%= postedBy.fullName %></p>
+        <p>Thể loại: <% genreList.forEach(genre => { %><%= genre.name %>, <% }) %></p>
+        <p>Tình trạng: <%= statusToString(series.status) %></p>
+        <% if (series.status == 1) { %>
+            <a href="#" role="button" class="btn-danger btn-sm"><i class="fas fa-lock"></i> Khóa</a>
+        <% } else if (series.status == 0) { %>
+            <a href="#" role="button" class="btn-primary btn-sm"><i class="fas fa-lock-open"></i> Mở khóa</a>
+        <% } %>
+    </div>
+</div>
+
+<hr>
+
+<div class="row">
+    <i class="fas fa-file-alt fa-2x icon"></i>
+    <h2>Nội dung</h2>
+</div>
+<div class="row">
+    <p><%= series.summary %></p>
+</div>
+
+<hr>
+
+<div class="row">
+    <i class="fas fa-list-ul fa-2x icon"></i>
+    <h2>Danh sách chương</h2>
+</div>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Tên chương</th>
+            <th>Tình trạng</th>
+            <th>Ngày đăng</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% chapterList.forEach(chapter => { %>
+            <tr>
+                <td><%= chapter.name %></td>
+                <td><%= statusToString(chapter.status) %></td>
+                <td><%= chapter.postedDate %></td>
+                <td>
+                    <button type="button" class="btn btn-light btn-sm" data-toggle="modal" data-target="#<%= chapter.name %>"><i class="fas fa-eye"></i> Xem</button>
+                    <% if (series.status == -1) { %>
+                        <button type="button" class="btn btn-primary btn-sm"><i class="fas fa-check"></i> Duyệt</button>
+                        <button type="button" class="btn btn-danger btn-sm"><i class="fas fa-times"></i> Từ chối</button>
+                    <% } %>
+                </td>
+            </tr>
+        <% }); %>
+    </tbody>
+</table>
+
+<% chapterList.forEach(chapter => { %>
+    <div class="modal fade" id="<%= chapter.name %>" tabindex="-1" aria-labelledby="<%= chapter.name %>Label" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="<%= chapter.name %>Label"><%= chapter.name %></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" style="text-align: center;">
+                    <% chapter.imageList.forEach(image => { %>
+                        <img src="<%= image %>" alt="" style="width: 100%;">
+                    <% }) %>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<% }) %>

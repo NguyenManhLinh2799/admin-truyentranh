@@ -1,0 +1,50 @@
+<h1>Báo cáo bình luận</h1>
+
+<hr>
+
+<div class="row">
+    <div class="col-2">
+        <b>Nội dung bình luận:</b>
+    </div>
+    <div class="col-10">
+        <p><%= comment.content %></p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-2">
+        <b>Người bình luận:</b>
+    </div>
+    <div class="col-10">
+        <p><%= commentedBy.fullName %></p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-2">
+        <b>Nội dung báo cáo</b>
+    </div>
+    <div class="col-10">
+        <%= reportComment.summary %>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-2">
+        <b>Người báo cáo:</b>
+    </div>
+    <div class="col-10">
+        <p><%= reportedBy.fullName %></p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-2">
+        <b>Ngày báo cáo:</b>
+    </div>
+    <div class="col-10">
+        <p><%= reportComment.reportedDate %></p>
+    </div>
+</div>
+
+<a href="#" role="button" class="btn-danger btn-sm"><i class="fas fa-times"></i> Xóa báo cáo</a>

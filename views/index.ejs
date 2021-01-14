@@ -1,0 +1,25 @@
+<h1>Dashboard</h1>
+
+<hr>
+
+<div class="row dashboard-button">
+  <div class="col-3">
+    <a href="/manage-members"><i class="fas fa-users fa-10x" style="color: blue;"></i></a>
+    <p>Quản lý thành viên</p>
+  </div>
+  <div class="col-3">
+    <a href="/manage-series"><i class="fas fa-book-open fa-10x" style="color: greenyellow;"></i></a>
+    <p>Quản lý truyện</p>
+    <p>(<%= countUnverifiedSeries %> truyện chưa được duyệt)</p>
+  </div>
+  <div class="col-3">
+    <a href="/manage-chapters"><i class="fas fa-list-ul fa-10x" style="color: grey;"></i></a>
+    <p>Quản lý chương truyện</p>
+    <p>(<%= countUnverifiedChapters %> chương truyện chưa được duyệt)</p>
+  </div>
+  <div class="col-3">
+    <a href="/reports"><i class="fas fa-exclamation-triangle fa-10x" style="color: red;"></i></a>
+    <p>Danh sách báo cáo</p>
+    <p>(<%= countReports %> báo cáo mới)</p>
+  </div>
+</div>

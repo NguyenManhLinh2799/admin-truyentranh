@@ -1,0 +1,41 @@
+.icon {
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.see-more {
+    text-align: center;
+}
+
+.copyright {
+    text-align: center;
+}
+
+.auth {
+    color: white;
+    margin-left: 10px;
+}
+
+.auth:hover {
+    color: white;
+}
+
+.logo {
+    width: 70px;
+    height: 60px;
+    margin-left: 10px;
+}
+
+.avatar {
+    width: 75%; /* width of container */
+    object-fit: cover;
+}
+
+.dashboard-button {
+    text-align: center;
+}
+
+.dashboard-button i {
+    width: 100%;
+}

@@ -1,0 +1,45 @@
+<h1>Thông tin thành viên</h1>
+
+<hr>
+
+<div class="row">
+    <div class="col-2">
+        <img class="img-thumbnail" src="/images/linh.jpg" alt="">
+    </div>
+    <div class="col-10">
+        <p>ID: <%= member._id %></p>
+        <p>Họ tên: <%= member.fullName %></p>
+        <p>Email: <%= member.email %></p>
+        <p>Ngày đăng ký: <%= member.registerDate %></p>
+        <p>Tình trạng: <% if (member.isBanned) { %>Đã khóa<% } else { %>Bình thường<% } %></p>
+        <% if (member.isBanned) { %>
+            <a href="#" role="button" class="btn-primary btn-sm"><i class="fas fa-lock-open"></i> Mở khóa</a>
+        <% } else { %>
+            <a href="#" role="button" class="btn-danger btn-sm"><i class="fas fa-lock"></i> Khóa</a>
+        <% } %>
+    </div>
+</div>
+
+<hr>
+
+<div class="row">
+    <i class="fas fa-history fa-2x icon"></i>
+    <h2>Lịch sử bình luận</h2>
+</div>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Tên truyện</th>
+            <th>Nội dung bình luận</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for (var i = 0; i < comments.length; i++) { %>
+            <tr>
+                <td><%= series[i].name %></td>
+                <td><%= comments[i].content %></td>
+            </tr>
+        <% } %>
+    </tbody>
+</table>

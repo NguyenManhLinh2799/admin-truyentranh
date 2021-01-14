@@ -1,0 +1,36 @@
+<h1>Quản lý chương truyện</h1>
+
+<hr>
+
+<div class="row">
+  <i class="fas fa-list-ul fa-2x icon"></i>
+  <h2>Danh sách chương truyện mới đăng</h2>
+</div>
+<table id="datatable" class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Tên truyện</th>
+      <th scope="col">Tên chương</th>
+      <th scope="col">Tình trạng</th>
+      <th scope="col">Ngày đăng</th>
+      <th class="no-sort" scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for (var i = 0; i < allChapters.length; i++) { %>
+      <tr>
+        <td><%= series[i].name %></td>
+        <td><%= allChapters[i].name %></td>
+        <td><%= statusToString(allChapters[i].status) %></td>
+        <td><%= allChapters[i].postedDate %></td>
+        <td>
+          <a href="/chapter-info/<%= allChapters[i]._id %>" class="btn btn-light btn-sm"><i class="fas fa-eye"></i> Xem</a>
+          <% if (allChapters[i].status == -1) { %>
+            <button type="button" class="btn btn-primary btn-sm"><i class="fas fa-check"></i> Duyệt</button>
+            <button type="button" class="btn btn-danger btn-sm"><i class="fas fa-times"></i> Từ chối</button>
+          <% } %>
+        </td>
+      </tr>
+    <% } %>
+  </tbody>
+</table>
