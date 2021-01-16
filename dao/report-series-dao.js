@@ -14,6 +14,11 @@ class ReportCommentDao {
     {
         return reportSeriesModel.count({});
     }
+
+    static async delete(id)
+    {
+        await reportSeriesModel.deleteOne({ _id: id });
+    }
 }
 
 module.exports = ReportCommentDao;

@@ -18,5 +18,17 @@ module.exports = {
             series.push(s);
         }
         res.render('member-info', { member: member, comments: comments, series: series });
+    },
+
+    banMember: async (req, res) => {
+        await MemberDao.ban(req.params.id);
+
+        res.redirect('/member-info/' + req.params.id);
+    },
+
+    unbanMember: async (req, res) => {
+        await MemberDao.unban(req.params.id);
+
+        res.redirect('/member-info/' + req.params.id);
     }
 }

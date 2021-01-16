@@ -37,6 +37,18 @@ module.exports = {
         } catch (error) {
             console.log(error);
         }
+    },
+
+    verifySeries: async (req, res) => {
+        await SeriesDao.verify(req.params.id);
+
+        res.redirect('/manage-series');
+    },
+
+    rejectSeries: async (req, res) => {
+        await SeriesDao.delete(req.params.id);
+
+        res.redirect('/manage-series');
     }
 }
 

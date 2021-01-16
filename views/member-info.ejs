@@ -4,7 +4,7 @@
 
 <div class="row">
     <div class="col-2">
-        <img class="img-thumbnail" src="/images/linh.jpg" alt="">
+        <img class="img-thumbnail" src="<%= member.avatar %>" alt="">
     </div>
     <div class="col-10">
         <p>ID: <%= member._id %></p>
@@ -13,9 +13,9 @@
         <p>Ngày đăng ký: <%= member.registerDate %></p>
         <p>Tình trạng: <% if (member.isBanned) { %>Đã khóa<% } else { %>Bình thường<% } %></p>
         <% if (member.isBanned) { %>
-            <a href="#" role="button" class="btn-primary btn-sm"><i class="fas fa-lock-open"></i> Mở khóa</a>
+            <a href="/unban-member/<%= member._id %>" role="button" class="btn-primary btn-sm"><i class="fas fa-lock-open"></i> Mở khóa</a>
         <% } else { %>
-            <a href="#" role="button" class="btn-danger btn-sm"><i class="fas fa-lock"></i> Khóa</a>
+            <a href="/ban-member/<%= member._id %>" role="button" class="btn-danger btn-sm"><i class="fas fa-lock"></i> Khóa</a>
         <% } %>
     </div>
 </div>

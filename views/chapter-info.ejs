@@ -4,8 +4,8 @@
 
 <p>Ngày đăng: <%= chapter.postedDate %></p>
 <% if (chapter.status == -1) { %>
-    <button type="button" class="btn btn-primary btn-sm"><i class="fas fa-check"></i> Duyệt</button>
-    <button type="button" class="btn btn-danger btn-sm"><i class="fas fa-times"></i> Từ chối</button>
+    <a href="/verify-chapter/<%= chapter._id %>" class="btn btn-primary btn-sm"><i class="fas fa-check"></i> Duyệt</a>
+    <a href="/reject-chapter/<%= chapter._id %>" class="btn btn-danger btn-sm"><i class="fas fa-times"></i> Từ chối</a>
 <% } %>
 
 <div class="container">

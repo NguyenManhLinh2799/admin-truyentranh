@@ -7,7 +7,8 @@ const memberSchema = mongoose.Schema(
         favoriteSeries: [mongoose.Schema.Types.ObjectId],
         isBanned: Boolean,
         password: String,
-        registerDate: Date
+        registerDate: Date,
+        avatar: String
     }
 );
 

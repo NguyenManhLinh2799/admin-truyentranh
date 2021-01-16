@@ -21,6 +21,16 @@ module.exports = {
         const chapter = await ChapterDao.get(req.params.id);
         const series = await SeriesDao.get(chapter.series);
         res.render('chapter-info', { chapter: chapter, series: series });
+    },
+
+    verifyChapter: async (req, res) => {
+        await ChapterDao.verify(req.params.id);
+        res.redirect('/manage-chapters');
+    },
+
+    rejectChapter: async (req, res) => {
+        await ChapterDao.delete(req.params.id);
+        res.redirect('/manage-chapters');
     }
 }
 

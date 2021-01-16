@@ -41,4 +41,28 @@ router.get('/report-series/:id', reportsController.loadReportSeries);
 // Report comment
 router.get('/report-comment/:id', reportsController.loadReportComment);
 
+// Ban member
+router.get('/ban-member/:id', membersController.banMember);
+
+// Unban member
+router.get('/unban-member/:id', membersController.unbanMember);
+
+// Verify series
+router.get('/verify-series/:id', seriesController.verifySeries);
+
+// Reject series
+router.get('/reject-series/:id', seriesController.rejectSeries);
+
+// Verify chapter
+router.get('/verify-chapter/:id', chaptersController.verifyChapter);
+
+// Reject chapter
+router.get('/reject-chapter/:id', chaptersController.rejectChapter);
+
+// Dismiss report series
+router.get('/dismiss-report-series/:id', reportsController.dismissReportSeries);
+
+// Dismiss report comment
+router.get('/dismiss-report-comment/:id', reportsController.dismissReportComment);
+
 module.exports = router;

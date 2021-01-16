@@ -61,5 +61,15 @@ module.exports = {
             postedBy: postedBy,
             reportedBy: reportedBy
         });
+    },
+
+    dismissReportSeries: async (req, res) => {
+        await ReportSeriesDao.delete(req.params.id);
+        res.redirect('/reports');
+    },
+
+    dismissReportComment: async (req, res) => {
+        await ReportCommentDao.delete(req.params.id);
+        res.redirect('/reports');
     }
 }

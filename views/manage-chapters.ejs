@@ -26,8 +26,8 @@
         <td>
           <a href="/chapter-info/<%= allChapters[i]._id %>" class="btn btn-light btn-sm"><i class="fas fa-eye"></i> Xem</a>
           <% if (allChapters[i].status == -1) { %>
-            <button type="button" class="btn btn-primary btn-sm"><i class="fas fa-check"></i> Duyệt</button>
-            <button type="button" class="btn btn-danger btn-sm"><i class="fas fa-times"></i> Từ chối</button>
+            <a href="/verify-chapter/<%= allChapters[i]._id %>" class="btn btn-primary btn-sm"><i class="fas fa-check"></i> Duyệt</a>
+            <a href="/reject-chapter/<%= allChapters[i]._id %>" class="btn btn-danger btn-sm"><i class="fas fa-times"></i> Từ chối</a>
           <% } %>
         </td>
       </tr>
