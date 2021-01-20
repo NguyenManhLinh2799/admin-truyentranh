@@ -19,7 +19,7 @@
   <tbody>
     <% for (var i = 0; i < allChapters.length; i++) { %>
       <tr>
-        <td><%= series[i].name %></td>
+        <td><a href="/series-info/<%= series[i]._id %>"><%= series[i].name %></a></td>
         <td><%= allChapters[i].name %></td>
         <td><%= statusToString(allChapters[i].status) %></td>
         <td><%= allChapters[i].postedDate %></td>

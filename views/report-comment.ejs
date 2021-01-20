@@ -16,7 +16,7 @@
         <b>Người bình luận:</b>
     </div>
     <div class="col-10">
-        <p><%= commentedBy.fullName %></p>
+        <p><a href="/member-info/<%= commentedBy._id %>"><%= commentedBy.fullName %></a></p>
     </div>
 </div>
 
@@ -34,7 +34,7 @@
         <b>Người báo cáo:</b>
     </div>
     <div class="col-10">
-        <p><%= reportedBy.fullName %></p>
+        <p><a href="/member-info/<%= reportedBy._id %>"><%= reportedBy.fullName %></a></p>
     </div>
 </div>
 

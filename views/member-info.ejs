@@ -37,7 +37,7 @@
     <tbody>
         <% for (var i = 0; i < comments.length; i++) { %>
             <tr>
-                <td><%= series[i].name %></td>
+                <td><a href="/series-info/<%= series[i]._id %>"><%= series[i].name %></a></td>
                 <td><%= comments[i].content %></td>
             </tr>
         <% } %>
