@@ -7,7 +7,7 @@ module.exports = {
     loadManageSeries: async (req, res) => {
         try {
             const allSeries = await SeriesDao.getAll();
-            res.render('manage-series', { allSeries: allSeries, statusToString: statusToString });
+            res.render('manage-series', { user: req.user, allSeries: allSeries, statusToString: statusToString });
         } catch (error) {
             console.log(error);
         }
@@ -28,6 +28,7 @@ module.exports = {
             var chapterList = await ChapterDao.getAllBySeries(series._id);
 
             res.render('series-info', {
+                user: req.user,
                 series: series,
                 postedBy: postedBy,
                 genreList: genreList,

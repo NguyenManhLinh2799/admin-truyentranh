@@ -10,6 +10,7 @@ module.exports = {
         const countReports = await ReportCommentDao.countAll() + await ReportSeriesDao.countAll();
 
         res.render('index', {
+            user: req.user,
             countUnverifiedSeries: countUnverifiedSeries,
             countUnverifiedChapters: countUnverifiedChapters,
             countReports: countReports

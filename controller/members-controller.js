@@ -5,7 +5,7 @@ var SeriesDao = require('../dao/series-dao');
 module.exports = {
     loadManageMembers: async (req, res) => {
         const allMembers = await MemberDao.getAll();
-        res.render('manage-members', { allMembers: allMembers });
+        res.render('manage-members', { user: req.user, allMembers: allMembers });
     },
 
     loadMemberInfo: async (req, res) => {
@@ -17,7 +17,7 @@ module.exports = {
             const s = await SeriesDao.get(comment.series);
             series.push(s);
         }
-        res.render('member-info', { member: member, comments: comments, series: series });
+        res.render('member-info', { user: req.user, member: member, comments: comments, series: series });
     },
 
     banMember: async (req, res) => {

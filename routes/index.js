@@ -6,40 +6,38 @@ var membersController = require('../controller/members-controller');
 var seriesController = require('../controller/series-controller');
 var chaptersController = require('../controller/chapters-controller');
 var reportsController = require('../controller/reports-controller');
-var adminController = require('../controller/admin-controller');
+
+var { ensureAuthenticated } = require('../config/auth');
 
 /* GET home page. */
-router.get('/', dashboardController.loadDashboard);
+router.get('/', ensureAuthenticated, dashboardController.loadDashboard);
 
 // Manage members
-router.get('/manage-members', membersController.loadManageMembers);
+router.get('/manage-members', ensureAuthenticated, membersController.loadManageMembers);
 
 // Manage series
-router.get('/manage-series', seriesController.loadManageSeries);
+router.get('/manage-series', ensureAuthenticated, seriesController.loadManageSeries);
 
 // Manage chapters
-router.get('/manage-chapters', chaptersController.loadManageChapters);
+router.get('/manage-chapters', ensureAuthenticated, chaptersController.loadManageChapters);
 
 // Reports
-router.get('/reports', reportsController.loadReports);
-
-// Admin info
-router.get('/admin-info', adminController.loadAdminInfo);
+router.get('/reports', ensureAuthenticated, reportsController.loadReports);
 
 // Member info
-router.get('/member-info/:id', membersController.loadMemberInfo);
+router.get('/member-info/:id', ensureAuthenticated, membersController.loadMemberInfo);
 
 // Series info
-router.get('/series-info/:id', seriesController.loadSeriesInfo);
+router.get('/series-info/:id', ensureAuthenticated, seriesController.loadSeriesInfo);
 
 // Chapter info
-router.get('/chapter-info/:id', chaptersController.loadChapterInfo);
+router.get('/chapter-info/:id', ensureAuthenticated, chaptersController.loadChapterInfo);
 
 // Report series
-router.get('/report-series/:id', reportsController.loadReportSeries);
+router.get('/report-series/:id', ensureAuthenticated, reportsController.loadReportSeries);
 
 // Report comment
-router.get('/report-comment/:id', reportsController.loadReportComment);
+router.get('/report-comment/:id', ensureAuthenticated, reportsController.loadReportComment);
 
 // Ban member
 router.get('/ban-member/:id', membersController.banMember);

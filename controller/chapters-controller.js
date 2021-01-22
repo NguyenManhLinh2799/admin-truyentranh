@@ -11,6 +11,7 @@ module.exports = {
             series.push(s);
         }
         res.render('manage-chapters', {
+            user: req.user,
             allChapters: allChapters,
             series: series,
             statusToString: statusToString
@@ -20,7 +21,7 @@ module.exports = {
     loadChapterInfo: async (req, res) => {
         const chapter = await ChapterDao.get(req.params.id);
         const series = await SeriesDao.get(chapter.series);
-        res.render('chapter-info', { chapter: chapter, series: series });
+        res.render('chapter-info', { user: req.user, chapter: chapter, series: series });
     },
 
     verifyChapter: async (req, res) => {

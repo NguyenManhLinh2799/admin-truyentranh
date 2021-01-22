@@ -26,6 +26,7 @@ module.exports = {
         }
 
         res.render('reports', {
+            user: req.user,
             allReportComments: allReportComments,
             allReportSeries: allReportSeries,
             comments: comments,
@@ -42,6 +43,7 @@ module.exports = {
         const reportedBy = await MemberDao.get(reportComment.reportedBy);
 
         res.render('report-comment', {
+            user: req.user,
             reportComment: reportComment,
             comment: comment,
             commentedBy: commentedBy,
@@ -56,6 +58,7 @@ module.exports = {
         const reportedBy = await MemberDao.get(reportSeries.reportedBy);
 
         res.render('report-series', {
+            user: req.user,
             reportSeries: reportSeries,
             series: series,
             postedBy: postedBy,
